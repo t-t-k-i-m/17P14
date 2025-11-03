@@ -45,14 +45,10 @@ void loop()
   dist_raw = ((6762.0 / (a_value - 9.0)) - 4.0) * 10.0;
 
   if (dist_raw >= _DIST_MIN && dist_raw <= _DIST_MAX)
-  {
-    digitalWrite(PIN_LED, HIGH);
+  {   
     dist_prev = dist_raw; 
   }
-  else 
-  {
-    digitalWrite(PIN_LED, LOW);
-  }
+
 
   dist_ema = EMA_ALPHA * dist_prev + (1.0 - EMA_ALPHA) * dist_ema;
     
